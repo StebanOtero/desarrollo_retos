@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="assets/img/ziara.png" alt="" />
+      <button
+        class="btn btn-outline-dark btn lg"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sidebar-menu"
+      >
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <div class="search-wrapper">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Buscar..."
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Hola, Inicia Sesion
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="login.html">Inicia Sesion</a></li>
+          <li><a class="dropdown-item" href="register.html">Registrate</a></li>
+        </ul>
+      </div>
+      <a href="#">Mis Compras</a>
+      <i class="fa-solid fa-heart"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </header>
+
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebar-menu"
+      aria-labelledby="sidebar-menu"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebar-menu">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <a href="index.html"><i class="fa fa-home"></i>Inicio</a>
+        <a href="compras.html"><i class="fa-solid fa-money-bill"></i>Compras</a>
+        <a href="categorias.html"><i class="fa-solid fa-list"></i>Categorias</a>
+        <a href="quienes.html"><i class="fa-solid fa-question"></i>Quienes somos</a>
+        <a href="contacto.html"><i class="fa-solid fa-address-book"></i>Contatcto</a>      
+      </div>
+    </div>
+
+    <main>
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/img/model9.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/model9.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/model9.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <strong>Te ayudamos</strong>
+        <ul>
+          <li><a href="#">Elemento 1</a></li>
+          <li><a href="#">Elemento 2</a></li>
+          <li><a href="#">Elemento 3</a></li>
+          <li><a href="#">Elemento 4</a></li>
+          <li><a href="#">Elemento 5</a></li>
+          <li><a href="#">Elemento 6</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <strong>Se parte de mitienda.com</strong>
+        <ul>
+          <li><a href="#">Elemento 1</a></li>
+          <li><a href="#">Elemento 2</a></li>
+          <li><a href="#">Elemento 3</a></li>
+          <li><a href="#">Elemento 4</a></li>
+          <li><a href="#">Elemento 5</a></li>
+          <li><a href="#">Elemento 6</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <strong>Trabaja con nosotros</strong>
+        <ul>
+          <li><a href="#">Elemento 1</a></li>
+          <li><a href="#">Elemento 2</a></li>
+          <li><a href="#">Elemento 3</a></li>
+          <li><a href="#">Elemento 4</a></li>
+          <li><a href="#">Elemento 5</a></li>
+          <li><a href="#">Elemento 6</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <strong>Trabaja con nosotros</strong>
+        <ul>
+          <li><a href="#">Elemento 1</a></li>
+          <li><a href="#">Elemento 2</a></li>
+          <li><a href="#">Elemento 3</a></li>
+          <li><a href="#">Elemento 4</a></li>
+          <li><a href="#">Elemento 5</a></li>
+          <li><a href="#">Elemento 6</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
