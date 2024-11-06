@@ -13,6 +13,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/contacto.css">
   </head>
   <body>
     <header>
@@ -82,13 +83,63 @@
         <a href="index.html"><i class="fa fa-home"></i>Inicio</a>
         <a href="compras.html"><i class="fa-solid fa-money-bill"></i>Compras</a>
         <a href="categorias.html"><i class="fa-solid fa-list"></i>Categorias</a>
-        <a href="quienes.html"><i class="fa-solid fa-question"></i>Quienes somos</a>
-        <a href="contacto.html"><i class="fa-solid fa-address-book"></i>Contatcto</a>      
+        <a href="quienes.html"
+          ><i class="fa-solid fa-question"></i>Quienes somos</a
+        >
+        <a href="contacto.html"
+          ><i class="fa-solid fa-address-book"></i>Contatcto</a
+        >
       </div>
     </div>
 
     <main>
-        <h4>Main de contacto</h4>
+      <div class="contact-wrapper">
+        <form action="">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre completo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Tu nombre"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Celular</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              placeholder="Teléfono o celular"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="comment" class="form-label"
+              >Comentario (opcional)</label
+            >
+            <textarea class="form-control" id="comment" rows="3"> </textarea>
+          </div>
+          <button class="btn btn-primary"> Enviar</button>
+        </form>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.742155861141!2d-76.54079169999999!3d3.412905299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6af05707fc1%3A0xd083a753c7398fb8!2sCentro%20Comercial%20Palmetto%20Plaza!5e0!3m2!1ses-419!2sco!4v1730902946700!5m2!1ses-419!2sco"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </main>
 
     <footer>
