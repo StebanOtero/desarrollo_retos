@@ -41,7 +41,8 @@ img {
     width: 70px;
     height: auto;
 }
-main {
+
+main #products-grid {
     flex: 1;
     padding: 15px;
     display: grid;

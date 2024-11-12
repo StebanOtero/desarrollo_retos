@@ -13,6 +13,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/compras.css" />
   </head>
   <body>
     <header>
@@ -82,14 +83,67 @@
         <a href="index.html"><i class="fa fa-home"></i>Inicio</a>
         <a href="compras.html"><i class="fa-solid fa-money-bill"></i>Compras</a>
         <a href="categorias.html"><i class="fa-solid fa-list"></i>Categorias</a>
-        <a href="quienes.html"><i class="fa-solid fa-question"></i>Quienes somos</a>
-        <a href="contacto.html"><i class="fa-solid fa-address-book"></i>Contatcto</a>      
+        <a href="quienes.html"
+          ><i class="fa-solid fa-question"></i>Quienes somos</a
+        >
+        <a href="contacto.html"
+          ><i class="fa-solid fa-address-book"></i>Contatcto</a
+        >
       </div>
     </div>
 
     <main>
-        <h4>Main de compras</h4>
+      <!-- filtros -->
+      <div class="main-body-container">
+        <div class="">
+          <div class="main-filters-container">
+            <h1 class="">Categorias</h1>
+            <ul class="filters-container">
+              <li>
+                <a href="" class="">Genero<i class="fa fa-fw fa-chevron-circle-down mt-1"></i></a>
+              </li>
+              <li>
+                <a href="" class="">Ventas<i class="fa fa-fw fa-chevron-circle-down mt-1"></i></a>
+              </li>
+              <li>
+                <a href="" class="">Producto<i class="fa fa-fw fa-chevron-circle-down mt-1"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const baseDeDatos = [
+          {
+            id: 1,
+            nombre:"Sombrero Volteao",
+            precio: 50000,
+            imagen: "assets\img\products\f1.jpg"
+          },
+          {
+            id: 1,
+            nombre:"Camisa",
+            precio: 50000,
+            imagen: "assets\img\products\f2.jpg"
+          }
+
+        ]
+      })
+    </script>
+    <div class="carrito-container">
+      <div class="carrito-info-container">
+        <main class="items"></main>
+        <aside class="carrito-info">
+          <h3>Carrito</h3>
+          <ul id="carrito" class="list-group"></ul>
+          <p>$Total</p>
+          <button class="vaciar">Vaciar</button>
+          <button class="pagar">Pagar</button>
+        </aside>
+      </div>
+    </div>
 
     <footer>
       <div>
