@@ -1,84 +1,103 @@
-const productos = [
-    {
-        id: 1,
-        nombre: "Camisa a rayas",
-        descripcion: "Camisa tropial playera hombre",
-        precio: 80000,
-        descuento: 50,
-        valoracion: 4,    
-    }
-]
-document.addEventListener("DOMContentLoaded", function() {    
-    // Se referencia al section que contiene los productos    
-    let grillaProductos = document.querySelector("#products-grid");    
-    
-    // Lógica de la card    // creamos el contenedor la card    
-    let card = document.createElement("div")    
-    card.classList.add("card"); 
-    card.style.width = "18rem";   
-    
-    // creamos la imagen    
-    let imagen = document.createElement("img")    
-    imagen.src = "assets/img/products/f4.jpg"    
-    imagen.classList.add("card-img-top")    
-    card.appendChild(imagen)    
-    
-    // cuerpo de la card
-    let cardBody = document.createElement("div")
-    cardBody.classList.add("card-body")
-    card.appendChild(cardBody)
+import { agregarProducto, carrito } from "../js/localstorage.js";
 
-    //titulo de la card
-    let cardTitle = document.createElement("h5")
-    cardTitle.classList.add("card-title")
-    cardTitle.innerText = "Camisa"
-    cardBody.appendChild(cardTitle)
+document.addEventListener("DOMContentLoaded", function() {
+    cargarProductos();
+});
 
-    //descripcion de la card
-    let descripcion = document.createElement("p")
-    descripcion.classList.add("card-text")
-    descripcion.innerText = "Camisa playera hombre"
-    cardBody.appendChild(descripcion)
+// Función para cargar los productos desde el archivo JSON
+function cargarProductos() {
+    fetch("productos.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al cargar el archivo JSON");
+            }
+            return response.json();
+        })
+        .then(productos => {
+            productos.forEach(dibujarTarjeta);  // Dibuja cada tarjeta de producto
+        })
+        .catch(error => console.error("Error:", error));
+}
 
-    //
-    let priceWrapper = document.createElement("div")   
-    priceWrapper.classList.add("price-content")
-    cardBody.appendChild(priceWrapper)
+// Función para crear el componente de valoraciones
+function valoracionProducto(numero) {
+    const ratingWrapper = document.createElement("div");
+    ratingWrapper.classList.add("star-content");
 
-    //precio
-    let precio1 = document.createElement("span")
-    let precio2 = document.createElement("span")
-
-    precio1.innerText = "$75.000"
-    precio2.innerText = "$85.000"
-    priceWrapper.append(precio1, precio2)
-
-    //valoracion
-    let ratingWrapper = document.createElement("div")
-    ratingWrapper.classList.add("star-content")
-    cardBody.appendChild(ratingWrapper)
-
-    for (let i=0; i<5; i++){
-        let star = document.createElement("i")
-        star.classList.add("fa")
-        star.classList.add("fa-star")
-        ratingWrapper.appendChild(star)
+    for (let i = 0; i < 5; i++) {
+        const star = document.createElement("i");
+        star.classList.add(i < numero ? "fa-solid" : "fa-regular", "fa-star");
+        ratingWrapper.appendChild(star);
     }
 
-    //boton
-    let buttonWrapper = document.createElement("div")
-    buttonWrapper.classList.add("d-grid")
+    return ratingWrapper;
+}
 
-    let button = document.createElement("button")
-    button.classList.add("btn")
-    button.classList.add("btn-primary")
-    button.innerText = "Agregar al carrito"
-    buttonWrapper.appendChild(button)
+// Función para dibujar cada tarjeta de producto
+function dibujarTarjeta(producto) {
+    const grillaProductos = document.querySelector("#products-grid");
 
-    cardBody.appendChild(buttonWrapper)
+    // Crear la estructura de la tarjeta
+    const card = document.createElement("div");
+    card.classList.add("card");
 
+    const imagen = document.createElement("img");
+    imagen.src = producto.imagen;
+    imagen.classList.add("card-img-top");
+    card.appendChild(imagen);
 
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    card.appendChild(cardBody);
 
-    // añadimos la card a la grilla de productos    
-    grillaProductos.appendChild(card)
-})
+    const cardTitle = document.createElement("h5");
+    cardTitle.classList.add("card-title");
+    cardTitle.innerText = producto.nombre;
+    cardBody.appendChild(cardTitle);
+
+    const description = document.createElement("p");
+    description.classList.add("card-text");
+    description.innerText = producto.descripcion;
+    cardBody.appendChild(description);
+
+    const priceWrapper = document.createElement("div");
+    priceWrapper.classList.add("price-content");
+    cardBody.appendChild(priceWrapper);
+
+    const price1 = document.createElement("span");
+    const price2 = document.createElement("span");
+    price1.innerText = formatoMoneda(producto.precio);
+    price2.innerText = formatoMoneda(producto.precio - (producto.precio * producto.descuento / 100));
+    priceWrapper.append(price1, price2);
+
+    const rating = valoracionProducto(producto.valoracion);
+    cardBody.appendChild(rating);
+
+    const buttonWrapper = document.createElement("div");
+    buttonWrapper.classList.add("d-grid");
+
+    const button = document.createElement("button");
+    button.classList.add("btn", "btn-primary");
+    button.innerText = "Agregar al carrito";
+    button.addEventListener("click", () => onProductClick(producto));
+    buttonWrapper.appendChild(button);
+
+    cardBody.appendChild(buttonWrapper);
+    grillaProductos.appendChild(card);
+}
+
+// Función para dar formato a los precios
+function formatoMoneda(numero) {
+    return Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        currencyDisplay: "code",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    }).format(numero);
+}
+
+// Función para manejar el evento de clic en el botón de agregar al carrito
+function onProductClick(producto) {
+    agregarProducto(producto);
+}
